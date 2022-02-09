@@ -144,14 +144,6 @@ int main(){
 }
 ```
 
-> ### Removing and Adding to Array
-
-```c++
-int main() {
-
-}
-```
-
 > ### Adding and Removing from Array
 
 Well there is no effective way to remove and add to an array. Dynamically adding to an array is possible and we will demo that but removing from an array is tedious and actually not worth the implementation. Instead if these functionalities is something you desire and are willing to sacrific efficiency then youll want to use **vectors**.
