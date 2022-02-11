@@ -16,6 +16,71 @@ All right guys to start lets understand how we import libraries to our programs.
 
 > **Namespaces** as the last definition kind of touches on is a way to bundle your classes and functions within it's own space/scope. This is done within a headerfile but can also be used outside of headerfiles and we will demo that later.
 
+```c++
+//headerFileExample.h
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+namespace vehicle
+{
+    class Car
+    {
+    private:
+        string brand;
+        int maxSpeed;
+        string color;
+
+    public:
+        string getBrand()
+        {
+            return brand;
+        }
+
+        int getMaxSpeed()
+        {
+            return maxSpeed;
+        }
+
+        string getColor()
+        {
+            return color;
+        }
+
+        void setBrand(string input)
+        {
+            brand = input;
+        }
+
+        void setMaxSpeed(int input)
+        {
+            maxSpeed = input;
+        }
+
+        void setColor(string input)
+        {
+            color = input;
+        }
+    };
+}
+```
+
+```c++
+// main.cpp
+#include <iostream>
+#include "headerFileExample.h"
+
+using namespace std;
+
+int main()
+{
+    vehicle::Car toyota;
+    toyota.setBrand("toyota");
+    cout << toyota.getBrand() << endl;
+}
+```
+
 ---
 
 ## Structs VS Classes
@@ -34,6 +99,54 @@ To understand how this works is hard through reading, instead we will show how t
 
 We will demo how to use these operators and make sure you see how theyre used in the wild so reading other people's code wont trip you up.
 
+> ### References
+
+```c++
+int main()
+{
+    string changeMe = "I am a value";
+    string &changeMeAddress = changeMe;
+    string copyOfChangeMe = changeMe;
+
+    copyOfChangeMe = "I am just  copy of changeMe and have no direct relationship to changeMe";
+    changeMeAddress = "I have a reference to changeMe so if you change my value you also change changeMe's value";
+
+    cout << copyOfChangeMe << endl;
+    cout << changeMeAddress << endl;
+    cout << changeMe << endl;
+}
+```
+
+The code snippet above shows that references hold the memory address of another variable. When you declare a reference you are making a direct relationship between two variables and making their addresses point to the same thing. This means when you change one you change the other. This is more useful for functions that you want to directly chnage the value of the parameters being passed in.
+
+> ### Pointers
+
+```c++
+int main()
+{
+    string changeMe = "I am a value";
+    string changeMe2 = "I am a second value";
+
+    string *pointerToChangeMe = &changeMe;
+
+    // This Prints Address of changeMe
+    cout << pointerToChangeMe << endl;
+
+    // This Prints Value of changeMe because we dereference it
+    cout << *pointerToChangeMe << endl;
+
+    // You can change the address that it points to! this impossible with references
+    pointerToChangeMe = &changeMe2;
+    cout << *pointerToChangeMe << endl;
+
+    // Changing Values with Pointers
+    *pointerToChangeMe = "Changed!";
+    cout << changeMe2 << endl;
+}
+```
+
+The code snippet above shows that pointers differ a little compared to References and I recommend to use References over Pointers since it should cover most use cases alone. But pointers is a good thing to understand so you can fully understand c++ code you see in the wild. Pointers practically do the same thing as references in terms of having a relationship with another variables memory address. You change the value of the pointer you are also changing the value of the referenced variable. However when declaring a pointer you also have to use the reference operator since all pointers point to an address. The cool thing about pointers though is that you can change the address of what the pointer is pointing to later on in your program! This would be impossible with references. Lastly you guys need to know how to dereference a pointer which is just seeing the value of what the address it is pointing to. Dereferencing is just done with the **\*** operator after declaring a pointer.
+
 ## New and Delete
 
 To understand the **new** and **delete** we have to understand **C++ Dynamic Memory**. So memory in C++ is divided into two parts
@@ -43,6 +156,8 @@ To understand the **new** and **delete** we have to understand **C++ Dynamic Mem
 - The Heap - this is unused memory of the program and can be used to allocate the memory dynamically when program runs. So during runtime you can get memory allocated from a user input for example, where the input is undetermined.
 
 The **new** keyword is usually not the recommended way to make an object. Since when you use this keyword you have to free up the dynamic memory allocated by your program using the **delete** keyword. We will go over this in a session but it's good to keep note that the **new** keyword is to create an object using **The Heap** for dynamic allocation purposes. The **delete** keyword is used to free up that space and make sure its not left hanging.
+
+Lets make a dynamic array that's made by user input to show how this can be done with new and delete!
 
 ## Syntax
 
@@ -178,5 +293,130 @@ int main()
     myVector.pop_back();
 
     displayArray(myVector); // 1, 2, 3, 4
+}
+```
+
+> ### Tuples
+
+Tuples is C++ are cool because you can store your data in a structure however they can vary in multiple types! In python you learned that tuples are immutable and that doesn't really apply for C++. Tuples is more of a way to store multi type variables in a collection. Lets see how it's done with a code snippet.
+
+```c++
+int main()
+{
+    // Making A Tuple
+    tuple<string, int, char, string> Fabio("USA", 21, 'M', "TA for DSA");
+
+    // Accessing Elements In a Tuple with get()
+    cout << "Country: " << get<0>(Fabio) << endl;
+    cout << "Age: " << get<1>(Fabio) << endl;
+    cout << "Gender: " << get<2>(Fabio) << endl;
+    cout << "Role: " << get<3>(Fabio) << endl;
+}
+```
+
+> ### Destructuring from Tuple
+
+```c++
+    // Declare the Variables
+    string first;
+    int second;
+    char third;
+    string fourth;
+
+    // Destructure Values from Tuple into them
+    tie(first, second, third, fourth) = Fabio;
+
+    // Proof
+    cout << first << second << third << fourth << endl;
+```
+
+> ### Traversing through tuple
+
+This is actually quite challenging to my surprise! You think this would work:
+
+```c++
+int main() {
+    // Making Tuple
+    tuple<string, int, char, string> Fabio("USA", 21, 'M', "TA for DSA");
+
+    //Traversing
+    for (int i = 0 ; i < tuple_size<decltype(Fabio)>::value; i++){
+        cout << get<i>(Fabio) << endl;
+    }
+}
+```
+
+but it doesn't! you get an error because get<>() works a bit strangely as it's not index based although it seems to be when you are using the get<>() method initially. For this youll have to use a template to make a generic type and make a utility function to get the trick done. To not confuse please don't try to understand the code yet since we still need to go over templates and generic types.
+
+```c++
+// When Iterator Equals Number of Values in a Tuple
+template <size_t I = 0, typename... Ts>
+typename enable_if<I == sizeof...(Ts), void>::type
+
+printTuple(tuple<Ts...> tup)
+{
+    return;
+}
+
+template <size_t I = 0, typename... Ts>
+typename enable_if<(I < sizeof...(Ts)), void>::type
+
+printTuple(tuple<Ts...> tup)
+{
+    cout << get<I>(tup) << " ";
+
+    printTuple<I + 1>(tup);
+}
+
+int main()
+{
+    // Making A Tuple
+    tuple<string, int, char, string> Fabio("USA", 21, 'M', "TA for DSA");
+
+        // Traversing through Tuple
+    printTuple(Fabio);
+}
+```
+
+> ### Maps
+
+We are going to be working with STL Maps. Woah woah what its STL? It just stands for "standard template library" and this is just done by including the library in your program.
+
+```c++
+#include<map>
+```
+
+Maps are associative containers that store elements formed by a combination of a key value pair. Maps behind the hood are implemented as a red black tree but its abstracted away by the library so you dont have to worry about it. You will learn about trees later actually.
+
+> ### Making Maps
+
+```c++
+#include <iostream>
+#include <map>
+
+using namespace std;
+
+int main()
+{
+    map<int, string> myMap = {
+        {97, "A+"},
+        {92, "A"},
+        {95, "B+"},
+        {82, "B"}};
+}
+```
+
+> ### Traversing through Maps (2 Ways)
+
+```c++
+int main() {
+    for (auto itr = myMap.begin(); itr != myMap.end(); itr++)
+    {
+        cout << itr->first << " : " << itr->second << endl;
+    }
+    for (map<int, string>::iterator itr = myMap.begin(); itr != myMap.end(); itr++)
+    {
+        cout << itr->first << " : " << itr->second << endl;
+    }
 }
 ```
