@@ -16,6 +16,8 @@ All right guys to start lets understand how we import libraries to our programs.
 
 > **Namespaces** as the last definition kind of touches on is a way to bundle your classes and functions within it's own space/scope. This is done within a headerfile but can also be used outside of headerfiles and we will demo that later.
 
+Lets make a header file with the namespace of vehicle and its own class and functions!
+
 ```c++
 //headerFileExample.h
 #include <iostream>
@@ -65,6 +67,7 @@ namespace vehicle
     };
 }
 ```
+Now lets include it to our main file!
 
 ```c++
 // main.cpp
@@ -104,13 +107,19 @@ We will demo how to use these operators and make sure you see how theyre used in
 ```c++
 int main()
 {
+    // Here we make a string variable with its own address in memory and value
     string changeMe = "I am a value";
-    string &changeMeAddress = changeMe;
+    // Here we set a reference variable to be a reference of changeMe so it has same address 
+    string &changeMeAddress = changeMe; 
+    // Here we set another variable to equal the value of changeMe and its own address
     string copyOfChangeMe = changeMe;
 
+    // Here we change the value of copyOfChangeMe
     copyOfChangeMe = "I am just  copy of changeMe and have no direct relationship to changeMe";
+    // Here we change the value of changeMeAddress
     changeMeAddress = "I have a reference to changeMe so if you change my value you also change changeMe's value";
 
+    // Can you guess what gets printed out??
     cout << copyOfChangeMe << endl;
     cout << changeMeAddress << endl;
     cout << changeMe << endl;
@@ -126,7 +135,6 @@ int main()
 {
     string changeMe = "I am a value";
     string changeMe2 = "I am a second value";
-
     string *pointerToChangeMe = &changeMe;
 
     // This Prints Address of changeMe
@@ -410,13 +418,17 @@ int main()
 
 ```c++
 int main() {
+    // USING AUTO : NOT RECOMMENDED TO USE AUTO A LOT
     for (auto itr = myMap.begin(); itr != myMap.end(); itr++)
     {
         cout << itr->first << " : " << itr->second << endl;
     }
+
+    // USING THE TYPE
     for (map<int, string>::iterator itr = myMap.begin(); itr != myMap.end(); itr++)
     {
         cout << itr->first << " : " << itr->second << endl;
     }
 }
 ```
+
