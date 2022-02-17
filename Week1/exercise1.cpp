@@ -1,24 +1,33 @@
 #include <iostream>
-#include <string>
-#include <algorithm>
+#include <array>
 
 using namespace std;
 
 int main()
 {
+    // ARRAY
+    // int arr[9] = {3, 49, 1, 6, 33, 13, 9, 4, 6};
+    array<int, 9> arr = {3, 49, 1, 6, 33, 13, 9, 4, 6};
 
-    string day;
-    cout << "What day is it today?" << endl;
-    cin >> day;
+    // INPUT AND OUTPUT
+    int key;
+    cout << "What data are you searching for??" << endl;
+    cin >> key;
 
-    // transform(day.begin(), day.end(), day.begin(), ::toupper);
-
-    if (day == "Saturday" || day == "Sunday")
+    // TRAVERSE THROUGH THE ARRAY
+    for (int i = 0; i < arr.size(); i++)
     {
-        cout << "Im going fishing" << endl;
-    }
-    else
-    {
-        cout << "Im studying" << endl;
+        //  FIND KEY
+        if (arr[i] == key)
+        {
+            cout << "Found element in index - " << to_string(i) << endl;
+            break;
+        }
+
+        // END OF ARRAY
+        if (i == arr.size() - 1)
+        {
+            cout << "Not Found!" << endl;
+        }
     }
 }

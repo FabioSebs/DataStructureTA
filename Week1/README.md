@@ -49,3 +49,5 @@ Polymorphism only comes after Inheritance is applied. Say for instance we have m
 - Data Structures : Project Display
 
 - Stack and Queue
+
+- Algorithm
