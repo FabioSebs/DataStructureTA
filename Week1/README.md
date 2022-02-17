@@ -40,4 +40,12 @@ Polymorphism only comes after Inheritance is applied. Say for instance we have m
 
 > ### Agenda for today!
 
-Today we will understand OOP and make 2 very simple data structures called a **Stack** and a **Queue**! But first we will understand functions a little better, go over classes, encapsulation, polymorphism, and inheritance.
+- Exercises
+
+- Functions
+
+- Classes
+
+- Data Structures : Project Display
+
+- Stack and Queue
