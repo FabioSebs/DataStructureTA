@@ -348,3 +348,13 @@ void dsa::BinaryTree<T>::getLeftTree(dsa::Node<T> *nodetoSearch)
 - Binary Tree
 
 - Headerfiles
+
+### Exercise For Today
+
+Create a Program that displays "True" or "False" if an element is in an array or not!
+
+- You can make the array yourself
+
+- has to be size of 7 or greater
+
+- make the user input an element and check if its in an array
