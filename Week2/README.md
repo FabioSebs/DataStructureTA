@@ -358,3 +358,15 @@ Create a Program that displays "True" or "False" if an element is in an array or
 - has to be size of 7 or greater
 
 - make the user input an element and check if its in an array
+
+### Challenges OOP (WEEK 2 SESSION 2)
+
+- Parent Class Building
+
+- Child Class Whatever you Guys Want
+
+- Atleast 3 Class Properties
+
+- 2 Constructors (Default and Customized)
+
+- Class Functions - Getters and Setters
