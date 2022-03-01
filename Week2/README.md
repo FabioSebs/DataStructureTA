@@ -359,14 +359,26 @@ Create a Program that displays "True" or "False" if an element is in an array or
 
 - make the user input an element and check if its in an array
 
-### Challenges OOP (WEEK 2 SESSION 2)
+### CHALLENGE - OOP (SESSION 2)
 
-- Parent Class Building
+- Parent Class - Building
 
-- Child Class Whatever you Guys Want
+- Child Class - Whatever You Guys Want
 
-- Atleast 3 Class Properties
-
-- 2 Constructors (Default and Customized)
+- Class Properties - Atleast 3
 
 - Class Functions - Getters and Setters
+
+- Split this in a Header File
+
+### BIG O (LOGN) EXPLAINED
+
+> log in math is usually I think base 10;
+
+> in computer science log is base 2;
+
+Since in compsci log is base 2. We just have to take the log of n and we will get the number of steps it takes for finding the worst possible outcome.
+
+### RECURSION WHEN TO USE
+
+Recursion should only be used when sample size is being halfed or reduced. If not then the callstack overhead will negatively impact performance.
