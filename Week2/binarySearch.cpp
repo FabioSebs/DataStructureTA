@@ -4,16 +4,17 @@
 
 using namespace std;
 
-// RECURSION
+// RECURSION BIG O(LOG N) - ONLY GOOD WHEN SAMPLE SIZE IS BEING SPLIT OR REDUCED;
 bool binarySearch(vector<int> myVector, int left, int right, int target)
 {
     // BASE CASE - MAKES SURE THAT YOUR RECURSION DOESNT STACK OVERFLOW
 
     if (right >= left)
     {
+        // GET MIDDLE
         int mid = left + (right - left) / 2;
 
-        // MIDDLE CASE
+        // MIDDLE CASE - BIG O(1)
         if (target == myVector[mid])
         {
             return true;
@@ -28,6 +29,7 @@ bool binarySearch(vector<int> myVector, int left, int right, int target)
         // RIGHT CASE
         return binarySearch(myVector, mid + 1, right, target);
     }
+    
     return 0;
 }
 
