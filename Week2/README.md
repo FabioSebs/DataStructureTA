@@ -359,26 +359,20 @@ Create a Program that displays "True" or "False" if an element is in an array or
 
 - make the user input an element and check if its in an array
 
-### CHALLENGE - OOP (SESSION 2)
+### Challenges OOP (WEEK 2 SESSION 2)
 
-- Parent Class - Building
+- Parent Class Building
 
-- Child Class - Whatever You Guys Want
+- Child Class Whatever you Guys Want
 
-- Class Properties - Atleast 3
+- Atleast 3 Class Properties
+
+- 2 Constructors (Default and Customized)
 
 - Class Functions - Getters and Setters
 
-- Split this in a Header File
+## Big O Notation!
 
-### BIG O (LOGN) EXPLAINED
+this is a way to meausure the efficiency of an algorithm!
 
-> log in math is usually I think base 10;
-
-> in computer science log is base 2;
-
-Since in compsci log is base 2. We just have to take the log of n and we will get the number of steps it takes for finding the worst possible outcome.
-
-### RECURSION WHEN TO USE
-
-Recursion should only be used when sample size is being halfed or reduced. If not then the callstack overhead will negatively impact performance.
+most things you will hear about Big O Notation is that it is the "Worst Possible Scenario"
