@@ -4,14 +4,408 @@
 
 Stack is a linear data structure that follows a LIFO rule of retrieval. This can be implemented by pointers or using an array. Pointers will add more overhead because of the objects and pointer we will have to make. We will go over both ways to make a stack.
 
+```c++
+#include <iostream>
+#include <array>
+
+#define MAX 100
+
+// DECLARATIONS
+namespace dsa
+{
+    template <typename T>
+    class Stack
+    {
+    public:
+        // PROPERTIES
+        std::array<T, MAX> items = {};
+        int size;
+
+        // CLASS FUNCTIONS
+        Stack() : size(0){};
+        void add(T item);
+        T pop();
+        void print();
+    };
+};
+
+// IMPLEMENTATIONS
+template <typename T>
+void dsa::Stack<T>::add(T item)
+{
+    this->items[this->size] = item;
+    this->size++;
+}
+
+template <typename T>
+T dsa::Stack<T>::pop()
+{
+    // std::cout << this->size << std::endl;
+    if (this->size == 0)
+    {
+        std::cout << "Stack is Empty!" << std::endl;
+        return 0;
+    }
+
+    --this->size;
+    int lastitem = this->items[this->size];
+    return lastitem;
+}
+
+template <typename T>
+void dsa::Stack<T>::print()
+{
+    for (int i = this->size - 1; i >= 0; i--)
+    {
+        std::cout << this->items[i] << std::endl;
+    }
+}
+```
+
 ### **QUEUE**
 
 Queue is a linear data structure as well but follows a FIFO rule of retrieval. We will implement them with pointers and arrays as well. Queues are used in everyday life like waiting in line for a movie or playing your spotify playlist in a queue.
+
+```c++
+#include <iostream>
+#include <array>
+
+#define MAX 100
+
+namespace dsa
+{
+    // DECLARATIONS
+    template <typename T>
+    class Queue
+    {
+    public:
+        // PROPERTIES
+        std::array<T, MAX> items;
+        int size;
+        int i;
+        // COSTRUCTOR
+        Queue() : items(), size(0), i(0) {}
+
+        // CLASS FUNCTIONS
+        void enqueue(T item);
+        T dequeue();
+        void print();
+    };
+}
+
+// IMPLEMENTATIONS
+template <typename T>
+void dsa::Queue<T>::enqueue(T item)
+{
+    this->items[this->size] = item;
+    ++this->size;
+}
+
+template <typename T>
+T dsa::Queue<T>::dequeue()
+{
+    return this->items[this->i++];
+}
+
+template <typename T>
+void dsa::Queue<T>::print()
+{
+    for (int x = this->i; x < this->size; x++)
+    {
+        std::cout << this->items[x] << std::endl;
+    }
+}
+
+```
 
 ### **LINKED LIST**
 
 Linked List we covered in Week 2 and are done by using pointers. They can be indexed unlike Queue and Stack and also have a tail and head unlike Queue and Stack.
 
+```c++
+// HEADERFILE
+#include <iostream>
+using namespace std;
+
+// DECLARATIONS ---------------------------------------------------------------------------------------------
+namespace dsa
+{
+    template <typename T>
+    class Node
+    {
+    public:
+        // PROPERTIES
+        T data;
+        Node<T> *next;
+
+        // CONSTRUCTOR
+        Node() : data(NULL), next(NULL){};
+        Node(T x) : data(x), next(NULL){};
+
+        // CLASS FUNCTIONS
+        void setData(T data);
+
+        T getData();
+
+        void setNext(Node<T> *node);
+
+        Node<T> getNext();
+    };
+
+    template <typename T>
+    class LinkedList
+    {
+    public:
+        // PROPERTIES
+        dsa::Node<T> *head;
+        dsa::Node<T> *tail;
+        int size;
+
+        // CONSTRUCTORS
+        LinkedList() : head(NULL), tail(NULL), size(0){};
+
+        // FUNCTIONS
+        void addToList(T data);
+
+        void printList();
+    };
+};
+
+// IMPLEMENATIONS -----------------------------------------------------------------------------------
+
+// CLASS FUNCTIONS
+template <typename T>
+void dsa::Node<T>::setData(T data)
+{
+    this->data = data;
+}
+
+template <typename T>
+T dsa::Node<T>::getData()
+{
+    return this->data;
+}
+
+template <typename T>
+void dsa::Node<T>::setNext(Node<T> *node)
+{
+    this->next = node;
+}
+
+template <typename T>
+dsa::Node<T> dsa::Node<T>::getNext()
+{
+    return this->next;
+}
+
+template <typename T>
+void dsa::LinkedList<T>::addToList(T data)
+{
+    // MAKING A NEW NODE FROM DATA
+    dsa::Node<T> *newNode = new dsa::Node<T>(data);
+
+    // LIST IS EMPTY
+    if (size == 0)
+    {
+        this->head = newNode;
+        this->tail = newNode;
+        this->head->next = tail;
+        this->size++;
+        return;
+    }
+    // LIST IS NOT EMPTY
+    this->tail->next = newNode;
+    this->tail = newNode;
+    this->size++;
+    return;
+}
+
+template <typename T>
+void dsa::LinkedList<T>::printList()
+{
+    dsa::Node<T> *traverseNode = this->head;
+
+    while (traverseNode != NULL)
+    {
+        cout << traverseNode->data << endl;
+        traverseNode = traverseNode->next;
+    }
+}
+
+```
+
 ### **DOUBLY LINKED LIST**
 
 Doubly Linked List are different because every node has two pointers to the next and previous element. This way nodes can accessed bidirectional.
+
+```c++
+// HEADERFILE
+#include <iostream>
+using namespace std;
+
+// DECLARATIONS ---------------------------------------------------------------------------------------------
+namespace dsa
+{
+    template <typename T>
+    class Node
+    {
+    public:
+        // PROPERTIES
+        T data;
+        Node<T> *next;
+        Node<T> *prev;
+
+        // DEFAULT CONSTRUCTOR
+        Node() : data(NULL), next(NULL), prev(NULL){};
+        // CUSTOM CONSTRUCTOR
+        Node(T x) : data(x), next(NULL), prev(NULL){};
+
+        // CLASS FUNCTIONS
+        void setData(T data);        //****
+        T getData();                 //****                //****
+        T getPrev();                 //****
+        void setNext(Node<T> *node); //****
+        void setPrev(Node<T> *node); //****
+        Node<T> getNext();
+    };
+
+    template <typename T>
+    class DoublyLinkedList
+    {
+    public:
+        // PROPERTIES
+        dsa::Node<T> *head;
+        dsa::Node<T> *tail;
+        int size;
+
+        // CONSTRUCTORS
+        DoublyLinkedList() : head(NULL), tail(NULL), size(0){};
+
+        // FUNCTIONS
+        void addToList(T data); //****
+        void printList();
+        T getTail();
+        dsa::Node<T> getTail(bool flag);
+        T getHead();
+        dsa::Node<T> getHead(bool flag);
+    };
+};
+
+// IMPLEMENATIONS -----------------------------------------------------------------------------------
+
+// CLASS FUNCTIONS NODE
+template <typename T>
+void dsa::Node<T>::setData(T data)
+{
+    this->data = data;
+    this->next = NULL;
+    this->prev = NULL;
+}
+
+template <typename T>
+T dsa::Node<T>::getData()
+{
+    return this->data;
+}
+
+template <typename T>
+dsa::Node<T> dsa::Node<T>::getNext()
+{
+    return this->next;
+}
+
+template <typename T>
+T dsa::Node<T>::getPrev()
+{
+    return this->prev;
+}
+
+template <typename T>
+void dsa::Node<T>::setNext(Node<T> *node)
+{
+    this->next = node;
+}
+
+template <typename T>
+void dsa::Node<T>::setPrev(Node<T> *node)
+{
+    this->prev = node;
+}
+
+// CLASS FUNCTIONS DOUBLY LINKED LIST
+template <typename T>
+void dsa::DoublyLinkedList<T>::addToList(T data)
+{
+    // MAKING A NEW NODE FROM DATA
+    dsa::Node<T> *newNode = new dsa::Node<T>(data);
+    dsa::Node<T> *temp = new dsa::Node<T>(data);
+
+    // LIST IS EMPTY
+    if (size == 0)
+    {
+        this->head = newNode;
+        this->tail = newNode;
+        this->head->next = tail;
+        this->head->prev = NULL;
+        this->tail->next = NULL;
+        this->tail->prev = head;
+        this->size++;
+        return;
+    }
+
+    // LIST IS NOT EMPTY
+    temp = this->tail;
+    this->tail = newNode;
+    this->tail->next = NULL;
+    this->tail->prev = temp;
+    temp->next = tail;
+
+    temp = this->tail->prev;
+
+    this->size++;
+    return;
+}
+
+template <typename T>
+void dsa::DoublyLinkedList<T>::printList()
+{
+    dsa::Node<T> *traverseNode = this->head;
+    while (traverseNode != NULL)
+    {
+        cout << traverseNode->data << endl;
+        traverseNode = traverseNode->next;
+    }
+}
+
+template <typename T>
+T dsa::DoublyLinkedList<T>::getHead()
+{
+    return this->head->data;
+}
+
+template <typename T>
+dsa::Node<T> dsa::DoublyLinkedList<T>::getHead(bool flag)
+{
+    if (flag || !flag)
+    {
+        return *this->head;
+    }
+}
+
+template <typename T>
+dsa::Node<T> dsa::DoublyLinkedList<T>::getTail(bool flag)
+{
+    if (flag || !flag)
+    {
+        return *this->tail;
+    }
+}
+
+template <typename T>
+T dsa::DoublyLinkedList<T>::getTail()
+{
+    return this->tail->data;
+}
+
+
+```
