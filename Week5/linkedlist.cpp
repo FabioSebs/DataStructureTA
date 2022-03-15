@@ -1,16 +1,17 @@
 #include <iostream>
+// IMPORT YOUR MODULE
 #include "./linkedlist.hpp"
 #include <string>
 
-using namespace std;
-
 int main()
 {
-    dsa::LinkedList<string> myList;
+    dsa::LinkedList<std::string> myList;
     myList.addToList("Welcome");
     myList.addToList("To");
     myList.addToList("DSA");
     myList.addToList("Week");
     myList.addToList("5");
-    myList.printList();
+    std::cout << myList.head->data << std::endl;
+    std::cout << myList.tail->data << std::endl;
+    // myList.printList();
 }

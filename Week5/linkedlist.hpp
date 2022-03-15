@@ -13,17 +13,15 @@ namespace dsa
         T data;
         Node<T> *next;
 
-        // CONSTRUCTOR
+        // DEFAULT CONSTRUCTOR
         Node() : data(NULL), next(NULL){};
+        // CUSTOMIZED CONSTRUCTOR
         Node(T x) : data(x), next(NULL){};
 
         // CLASS FUNCTIONS
         void setData(T data);
-
         T getData();
-
         void setNext(Node<T> *node);
-
         Node<T> getNext();
     };
 
@@ -36,12 +34,11 @@ namespace dsa
         dsa::Node<T> *tail;
         int size;
 
-        // CONSTRUCTORS
+        // DEFAULT CONSTRUCTOR
         LinkedList() : head(NULL), tail(NULL), size(0){};
 
         // FUNCTIONS
         void addToList(T data);
-
         void printList();
     };
 };
@@ -88,6 +85,7 @@ void dsa::LinkedList<T>::addToList(T data)
         this->size++;
         return;
     }
+
     // LIST IS NOT EMPTY
     this->tail->next = newNode;
     this->tail = newNode;
@@ -103,6 +101,7 @@ void dsa::LinkedList<T>::printList()
     while (traverseNode != NULL)
     {
         cout << traverseNode->data << endl;
+        // INCREMENT
         traverseNode = traverseNode->next;
     }
 }

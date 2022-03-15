@@ -11,8 +11,8 @@ int main()
     myQueue.enqueue(4);
     myQueue.enqueue(5);
 
-    std::cout << myQueue.dequeue() << std::endl;
-    std::cout << myQueue.dequeue() << std::endl;
-    std::cout << myQueue.dequeue() << std::endl;
+    myQueue.dequeue();
+    myQueue.dequeue();
+    myQueue.dequeue();
     myQueue.print();
 }
