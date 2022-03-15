@@ -1,11 +1,13 @@
 #include <iostream>
 #include <array>
 
+// CONSTANT VARIABLES
 #define MAX 100
 
 // DECLARATIONS
 namespace dsa
 {
+    // MULTI TYPE SUPPORT WITH TEMPLATES
     template <typename T>
     class Stack
     {
@@ -15,7 +17,7 @@ namespace dsa
         int size;
 
         // CLASS FUNCTIONS
-        Stack() : size(0){};
+        Stack() : size(0){}; // CONSTRUCTOR
         void add(T item);
         T pop();
         void print();
@@ -27,21 +29,22 @@ template <typename T>
 void dsa::Stack<T>::add(T item)
 {
     this->items[this->size] = item;
-    this->size++;
+    this->size++; // INCREMENT SIZE
 }
 
 template <typename T>
 T dsa::Stack<T>::pop()
 {
-    // std::cout << this->size << std::endl;
+    // ERROR HANDLE IF STACK IS EMPTY
     if (this->size == 0)
     {
         std::cout << "Stack is Empty!" << std::endl;
         return 0;
     }
 
+    // POPPING
     --this->size;
-    int lastitem = this->items[this->size];
+    T lastitem = this->items[this->size];
     return lastitem;
 }
 
