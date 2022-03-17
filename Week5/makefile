@@ -1,3 +1,9 @@
+d_array:compile_darray
+	./d_array.exe
+
+compile_darray:
+	g++ dynamicarray.cpp -o d_array.exe
+
 linkedlist: compile_ll
 	./linkedlist.exe
 
