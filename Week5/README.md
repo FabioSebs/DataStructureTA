@@ -409,3 +409,21 @@ T dsa::DoublyLinkedList<T>::getTail()
 
 
 ```
+
+### Dynamic Memory Allocation With Arrays
+
+- Arrays are fixed in size and Vectors are dynamically made in size
+
+- **New** keyword makes a dynamic memory allocated object
+
+- When you use the new keyword you have to make sure to use the **delete** keyword.
+
+- In High Level Languages theres something called **Garbage Collection** that frees up memory for you and in C++ there is no such thing so you have to free up the memory yourself.
+
+### Templates
+
+### LIFO - (Last In First Out) - Stack
+
+### FIFO - (First In First Out) - Queue
+
+### Assignment For Today!

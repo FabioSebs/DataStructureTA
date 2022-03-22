@@ -4,7 +4,7 @@
 // CONSTANT VARIABLE
 #define MAX 100
 
-namespace dsa
+namespace dsa // AVOIDING NAME COLLISIONS
 {
     // DECLARATIONS
     template <typename T>
@@ -22,6 +22,8 @@ namespace dsa
         // CLASS FUNCTIONS
         void enqueue(T item);
         T dequeue();
+        void del();
+        bool search();
         void print();
     };
 }

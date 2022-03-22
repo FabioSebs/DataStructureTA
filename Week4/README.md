@@ -24,6 +24,8 @@ Array for storing **fixed** number of elements in an object.
 
 Vector for dynamically storing number of elements in an object.
 
+###
+
 ### Exercise
 
 Write 3 Facts on Three Topics of what we have learned so far!

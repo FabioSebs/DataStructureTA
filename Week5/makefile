@@ -1,3 +1,9 @@
+templates:compile_template
+	./template.exe
+
+compile_template:
+	g++ template.cpp -o template.exe
+
 d_array:compile_darray
 	./d_array.exe
 

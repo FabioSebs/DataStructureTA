@@ -90,6 +90,7 @@ void dsa::LinkedList<T>::addToList(T data)
     this->tail->next = newNode;
     this->tail = newNode;
     this->size++;
+    delete newNode;
     return;
 }
 
