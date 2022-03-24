@@ -22,7 +22,7 @@ namespace dsa // AVOIDING NAME COLLISIONS
         // CLASS FUNCTIONS
         void enqueue(T item);
         T dequeue();
-        void del();
+        void del(T item);
         bool search();
         void print();
     };
@@ -47,10 +47,26 @@ T dsa::Queue<T>::dequeue()
 template <typename T>
 void dsa::Queue<T>::print()
 {
-    std::cout << "SIZE PROPERTY: " << this->i << std::endl;
-
+    std::cout << "SIZE OF QUEUE: " << this->i << std::endl;
+    int idx = 0;
     for (int x = this->i; x < this->size; x++)
     {
-        std::cout << this->items[x] << std::endl;
+        std::cout << idx++ << ": " << this->items[x] << std::endl;
     }
+}
+template <typename T>
+void dsa::Queue<T>::del(T item)
+{
+    dsa::Queue<int> tempQueue;
+
+    for (int x = 0; x < this->size; x++)
+    {
+        if (this->items[x] != item)
+        {
+            tempQueue.enqueue(this->items[x]);
+        }
+    }
+
+    this->items = tempQueue.items;
+    this->size = tempQueue.size;
 }
