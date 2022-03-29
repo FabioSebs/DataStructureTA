@@ -104,7 +104,7 @@ void PostFixConverter(string expression)
 int main()
 {
     dsa::Stack<char> OperatorStack;
-    string infixExpression = "2+9";
+    string infixExpression = "2+9*10";
     PostFixConverterRecursive(infixExpression, 0, OperatorStack);
 }
 
