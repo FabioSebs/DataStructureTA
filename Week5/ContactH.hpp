@@ -2,11 +2,14 @@
 #include <iterator>
 #include <map>
 using namespace std;
+
+
 map<string,int> contactmap;
 int cond;
 string a;
 int b;
 map<int, int>::iterator itr;
+
 void addcontact(string a,int b){
     contactmap.insert(pair<string, int>(a,b));
 }

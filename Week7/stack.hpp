@@ -18,19 +18,20 @@ namespace dsa
 
         // CLASS FUNCTIONS
         Stack() : size(0){}; // CONSTRUCTOR
-        void add(T item);
+        void push(T item);
         T pop();
+        T peak();
         void print();
     };
 };
 
 // IMPLEMENTATIONS
 template <typename T>
-void dsa::Stack<T>::add(T item)
+void dsa::Stack<T>::push(T item)
 {
     this->items[this->size] = item;
     this->size++; // INCREMENT SIZE
-}
+};
 
 template <typename T>
 T dsa::Stack<T>::pop()
@@ -44,6 +45,21 @@ T dsa::Stack<T>::pop()
 
     // POPPING
     --this->size;
+    T lastitem = this->items[this->size];
+    return lastitem;
+};
+
+template <typename T>
+T dsa::Stack<T>::peak()
+{
+    // ERROR HANDLE IF STACK IS EMPTY
+    if (this->size == 0)
+    {
+        std::cout << "Stack is Empty!" << std::endl;
+        return 0;
+    }
+
+    // POPPING
     T lastitem = this->items[this->size];
     return lastitem;
 }
