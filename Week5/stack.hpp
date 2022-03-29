@@ -19,8 +19,8 @@ namespace dsa
         // CLASS FUNCTIONS
         Stack() : size(0){}; // CONSTRUCTOR
         void push(T item);
-        T pop();  // DESTRUCTIVE
-        T peak(); // NON-DESTRUCTIVE - DOESNT REMOVE
+        T pop();
+        T peak();
         void print();
     };
 };
