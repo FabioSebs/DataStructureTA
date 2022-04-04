@@ -53,8 +53,8 @@ void PostFixConverterRecursive(string expression, int inc, dsa::Stack<char> &Ope
         // IF STACK HAS MORE THAN ONE OPERATOR OR LAST ITERATION
         if (OperatorStack.size >= 1 || inc == expression.length() - 1)
         {
-            cout << OperatorStack.pop(); // REMOVING THE *
-            OperatorStack.push(oper);    // ADDING THE +
+            cout << OperatorStack.pop();
+            OperatorStack.push(oper);
         }
         else
         {
@@ -107,9 +107,3 @@ int main()
     string infixExpression = "2+9*10";
     PostFixConverterRecursive(infixExpression, 0, OperatorStack);
 }
-
-// INPUT: 1+3
-
-// EXPECTED OUTPUT:
-
-// POSTFIX - first comes the operands, then operators
