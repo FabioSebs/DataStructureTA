@@ -319,3 +319,21 @@ void dsa_linkedlist::PriorityQueue::print()
     }
 }
 ```
+
+### Heaps
+
+Heaps are made from a binary tree where the root is either the maximum or the minimum value in the data structure. There is a a Min-Heap and there is a Max-Heap. 
+
+- In a Min-Heap the root node is less than or equal to either of it's children.
+
+- Max-Heap is where the root node is greater than or equal to either of it's children.
+
+We will construct these data structures when we go over binary trees and the understanding of heaps will be much more clearer.
+
+![heap pic](./images/heaps.PNG)
+
+### Binary Search Tree
+
+A Binary Search Tree is a data structure that is made up of Nodes and Pointers just like a linked list however the data structure is **not** linear. Instead of thinking of the pointer being next in line think of a pointer being children of the Node. Expanding like a big family tree. Every node has a left child and a right child. If the node doesn;t have any childrnen it's referred to as a **leaf**.   
+
+![bst](./images/binaryTree.PNG)
