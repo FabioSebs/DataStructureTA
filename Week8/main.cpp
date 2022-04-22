@@ -3,7 +3,7 @@
 
 int main()
 {
-    dsa_linkedlist::PriorityQueue myPQ;
+    dsa_array::PriorityQueue myPQ;
     myPQ.enqueue(10);
     myPQ.enqueue(20);
     myPQ.enqueue(5);

@@ -337,3 +337,37 @@ We will construct these data structures when we go over binary trees and the und
 A Binary Search Tree is a data structure that is made up of Nodes and Pointers just like a linked list however the data structure is **not** linear. Instead of thinking of the pointer being next in line think of a pointer being children of the Node. Expanding like a big family tree. Every node has a left child and a right child. If the node doesn;t have any childrnen it's referred to as a **leaf**.   
 
 ![bst](./images/binaryTree.PNG)
+
+## Week 8 Recap Section!!
+
+1) Why are headerfiles useful??
+
+2) What is the difference between linear data structures and heirarchical data structures.
+
+3) What methods have we covered to make a Stack/Queue
+
+4) If we want to use Binary Search what condition has to be met?
+
+5) What are the steps for a successful recursive function?
+
+6) What Big O notation is associated with Recursive Algorithms?
+
+7) When is recursion better than linear?
+
+8) Why do we use templates ie. Why do we templatize functions?
+
+9) What are some main concepts of OOP?
+
+10) What data structures will you use in your projects??
+
+### Assignment Time!! 
+
+- Make a Linear Data Structure with pointers or array (your choice) and make sure it works and can accept many elements. 
+
+- Then with the elements inserted into the Data Structure, make sure to perform Binary Search on the dataset. ( Make sure to sort beforehand!!)
+
+- The sorting can be done with the bubble sort algorithm or you can use another sorting algorithm.
+
+Due for next session on April 27th! Will give most of class time to do it :D 
+
+
