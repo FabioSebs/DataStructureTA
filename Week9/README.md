@@ -2,6 +2,17 @@
 
 ### Sorting Algorithms
 
+#### Bubble Sort
+
+#### Selection Sort
+
+#### Insertion Sort
+
+#### Merge Sort
+
+#### Quick Sort
+
+
 ### Hash Maps
 
 Alright we have covered linear data structures now let's discuss another data structure that is NOT linear. Hash Maps are very efficient and aim to do any type of retrieval and insertion in constant time. O(1). 
@@ -12,7 +23,9 @@ A Hash Map is a key-value store that uses an array and a hashing function to sav
 
 Key : the identifier to a given value
 
-Hash Function : This is a function that takes some type of input like a key and returns a special index
+Value : the representation of a given key
+
+Hash Function : a function that takes some type of input like a **key** and returns a special index
 
 Compression function: A function that transforms its inputs into some smaller range of possible outputs.
 
@@ -31,15 +44,58 @@ A Hash-Map is ---
 
 The secret to Hash Maps is a hash function. A hash function turns a key into an index in the underlying array.
 
+A Hash Function MUST
+
+- Be Predictable (Given the same input will give the same output)
+
+- Handle Collisions 
+
 ### Challenges
 
-A hash function may encounter a problem where a **collision** occurs. A collision is when the hashing function takes an input and outputs an index which is the same as a previous input. 
+A hash function may encounter a problem where a **collision** occurs. A collision is when the hashing function takes an input and gives out an ouput of an index which is the same as a previous input. 
 
 Two common and important methods are **Seperate Chaining** and **Open Addressing**. 
 
-**Seperate Chaining** - where each array index points to a different data structure
+**Seperate Chaining** - where each array index contains a linked list and any values that are in the collided index is appended into the linked list.
 
-**Open Addressing** - where a collision triggers a probing sequence to find where to store the value for a given key
+https://www.youtube.com/watch?v=_xA8UvfOGgU
+
+**Open Addressing** - where a collision triggers a probing sequence to find where to store the value for a given key is launched.
+
+- ## Linear Probing
+
+initial output = key % size of hash        
+> X collision oh no!
+
+(key + 1) % size of hash                     
+>X occupied!
+
+(key + 2) % size of hash                     
+>X occupied!
+
+(key + 3) % size of hash                     
+>Unoccupied :D
+
+- Linear Probing Bad Things!
+> clustering  = Insertion O(n)
+
+
+- ## Quadratic Probing
+
+initial output = key % size of hash        
+> X collision oh no!
+
+(key + 1 * 1) % size of hash                     
+>X occupied!
+
+(key + 2 * 2) % size of hash                     
+>X occupied!
+
+(key + 3 * 3) % size of hash                     
+>Unoccupied :D
+
+
+https://www.youtube.com/watch?v=Dk57JonwKNk
 
 ### Code 
 
@@ -152,5 +208,22 @@ void HashTable::printTable()
     return;
 }
 ```
+<!-- DIVIDE AND CONQUER -->
+<!-- UNDIRECTED/DIRECTED GRAPHS AND GRIDS -->
+
+## Sorts
+
+### Bubble Sort
+
+https://visualgo.net/en/sorting
+
+### Selection Sort
+
+https://www.hackerearth.com/practice/algorithms/sorting/selection-sort/visualize
+https://opendsa-server.cs.vt.edu/embed/selectionsortAV
+
+### Insertion Sort
+
+### Merge Sort
 
 

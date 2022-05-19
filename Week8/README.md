@@ -341,24 +341,54 @@ A Binary Search Tree is a data structure that is made up of Nodes and Pointers j
 ## Week 8 Recap Section!!
 
 1) Why are headerfiles useful??
+    - Use it for importing and modularization
+    - Structuring your code in a friendly manner
 
 2) What is the difference between linear data structures and heirarchical data structures.
+    - Linear Data Structures are single level oriented
+    - One to One Relationship
+
 
 3) What methods have we covered to make a Stack/Queue
+    - Array/Vector from the STL
+    - Nodes and Pointers to create
+
 
 4) If we want to use Binary Search what condition has to be met?
+    - Has to be sorted
 
 5) What are the steps for a successful recursive function?
+    - Base Case
+    - Logic
+    - Recursive Function Call
 
 6) What Big O notation is associated with Recursive Algorithms?
+    - Linear O(n)
+    - Recursive O(log n)
+
 
 7) When is recursion better than linear?
+    - Recursion is better when the search space can be broken down / minmized 
+
+7a) Why is recursion not better than linear given the same search space??
+    - Recursion is based of calling itself, the reason is the call stack adds additional memory overhead   
 
 8) Why do we use templates ie. Why do we templatize functions?
+    - multiple data type support
 
 9) What are some main concepts of OOP?
+    - Setters and Getters (to add security to out class properties) Public / Private / Protected
+    - Inheritance - the ability to hand down properties and functions of a class from a parent class to a xhild class
+    - Polymorphism - over-riding functions passed down from a parent class
+
+9a) What is essential for a class to be built? 
+    - Attributes / Constructors
+    - Deconstructor
+    - Class Methods
+
 
 10) What data structures will you use in your projects??
+    - Queues, PQ, Linked List, Stacks, Array
 
 ### Assignment Time!! 
 
