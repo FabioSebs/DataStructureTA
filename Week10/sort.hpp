@@ -22,6 +22,7 @@ void Sorts::swap(int *a, int *b)
     int temp = *a;
     *a = *b;
     *b = temp;
+    this->steps++;
 }
 
 void Sorts::printArray()
@@ -48,6 +49,7 @@ void Sorts::bubbleSort()
     {
         for (int j = i + 1; j < testArray.size(); j++)
         {
+            ++this->steps;
             if (this->testArray[j] < this->testArray[i])
             {
                 this->swap(&this->testArray[i], &this->testArray[j]);
@@ -64,14 +66,16 @@ void Sorts::bubbleSort()
     this->steps = 0;
 };
 
-void Sorts::selectionSort(){
-  // Printing Original Vector
+void Sorts::selectionSort()
+{
+    // Printing Original Vector
     this->printArray();
 
     // Sorting Vector
     for (int i = 0; i < this->testArray.size(); i++)
     {
         int min = i;
+        this->steps++;
         for (int j = i + 1; j < testArray.size(); j++)
         {
 
@@ -90,64 +94,71 @@ void Sorts::selectionSort(){
 
     // Steps
     std::cout << "\nSteps:\t" << this->steps << "\n\n";
-    this->steps = 0;  
+    this->steps = 0;
 };
 
-void Sorts::insertionSort(){
+void Sorts::insertionSort()
+{
     // Printing Original Vector
     this->printArray();
 
     // Sorting Vector
-    int i, key, j; 
+    int i, key, j;
     for (i = 1; i < this->testArray.size(); i++)
     {
         int key = this->testArray[i];
         int j = i - 1;
-
-        while (j >= 0 && this->testArray[j] > key) {
-            this->testArray[j+1] = this->testArray[j];
+        // this->steps++;
+        while (j >= 0 && this->testArray[j] > key)
+        {
+            this->testArray[j + 1] = this->testArray[j];
             j--;
             this->steps++;
-        }   
-        this->testArray[j + 1] = key; 
+        }
+        this->testArray[j + 1] = key;
     }
 
     // Printing Sorted Vector
     this->printArray();
 
     // Steps
-    std::cout << "\nSteps:\t" << this->steps << "\n\n";
-    this->steps = 0;  
+    std::cout << "\nSwaps:\t" << this->steps << "\n\n";
+    this->steps = 0;
 };
 
-void Sorts::mergeSort(std::vector<int> *arr, int low, int high){
+void Sorts::mergeSort(std::vector<int> *arr, int low, int high)
+{
     // Sorting Vector
     int mid;
-    if (low < high) {
-        mid = low + (high - low)/2;
+    if (low < high)
+    {
+        mid = low + (high - low) / 2;
         this->mergeSort(arr, low, mid);
-        this->mergeSort(arr, mid+1, high);
+        this->mergeSort(arr, mid + 1, high);
         this->merge(arr, low, high, mid);
-    }  
+    }
 };
 
-void Sorts::merge(std::vector<int> *arr, int low, int high, int mid) {
+void Sorts::merge(std::vector<int> *arr, int low, int high, int mid)
+{
     // VARIABLES
-    int i , j , k, left, right;
+    int i, j, k, left, right;
 
     left = mid - low + 1;
     right = high - mid;
-    
+
     std::vector<int> *leftArray;
     std::vector<int> *rightArray;
 
     // FILLING ARRAYS
-    for ( i = 0; i < left; i++) {
-        leftArray[i] = arr[low+i];
+    for (i = 0; i < left; i++)
+    {
+        leftArray[i] = arr[low + i];
     }
 
-    for (j = 0 ; j < right; j++) {
-        rightArray[j] = arr[mid+1+j];
+    for (j = 0; j < right; j++)
+    {
+        rightArray[j] = arr[mid + 1 + j];
     }
 
     i = 0;
@@ -155,25 +166,30 @@ void Sorts::merge(std::vector<int> *arr, int low, int high, int mid) {
     k = low;
 
     // MERGING
-    while (i < left && j < right) {
-        if (leftArray[i] <= rightArray[k]) {
+    while (i < left && j < right)
+    {
+        if (leftArray[i] <= rightArray[k])
+        {
             arr[k] = leftArray[i];
             i++;
         }
-        else {
+        else
+        {
             arr[k] = rightArray[j];
-            j++; 
+            j++;
         }
         k++;
     }
 
-    while (i < left) {
+    while (i < left)
+    {
         arr[k] = leftArray[i];
         k++;
         i++;
     }
 
-    while (j < right) {
+    while (j < right)
+    {
         arr[k] = rightArray[j];
         k++;
         j++;

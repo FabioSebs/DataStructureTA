@@ -8,12 +8,10 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue May 17 05:33:39 2022
+# Make data base, printed on Thu May 19 05:26:28 2022
 
 # Variables
 
-# environment
-FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
 # environment
 SYSTEMDRIVE = C:
 # environment
@@ -25,7 +23,7 @@ TMPDIR = C:\Users\espin\AppData\Local\Temp
 # environment
 LOCALAPPDATA = C:\Users\espin\AppData\Local
 # environment
-VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-16e58d9d-bbaf-46ce-8712-d8cd260d8167-sock
+VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-5cd1758b-98c8-49fd-8e1f-f7dd628aa20a-sock
 # environment
 VSCODE_CWD = C:\Users\espin\Desktop\Computer Science\DataStructureTA
 # environment
@@ -47,11 +45,9 @@ GOPATH = C:\Users\espin\go
 # environment
 ACLOCAL_PATH = C:\Program Files\Git\mingw64\share\aclocal;C:\Program Files\Git\usr\share\aclocal
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_16212_IUVMUZDQLQWDVNXI
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_9920_EYFWZSLKGBWLWDLE
 # environment
 ORIGINAL_TEMP = C:/Users/espin/AppData/Local/Temp
-# environment
-FPS_BROWSER_USER_PROFILE_STRING = Default
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
@@ -63,7 +59,7 @@ PWD = C:/Users/espin/Desktop/Computer Science/DataStructureTA
 # environment
 HOSTNAME = LAPTOP-6VSS0VBA
 # environment
-OLDPWD = C:/Users/espin
+OLDPWD = C:/Users/espin/Desktop/Computer Science/DataStructureTA/Week9
 # automatic
 ^D = $(patsubst %/,%,$(patsubst %\,%,$(dir $^)))
 # environment
@@ -71,7 +67,7 @@ VSCODE_LOG_STACK = false
 # automatic
 %F = $(notdir $%)
 # environment
-VSCODE_CODE_CACHE_PATH = C:\Users\espin\AppData\Roaming\Code\CachedData\da15b6fd3ef856477bf6f4fb29ba1b7af717770d
+VSCODE_CODE_CACHE_PATH = C:\Users\espin\AppData\Roaming\Code\CachedData\c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5
 # environment
 SSH_ASKPASS = C:/Program Files/Git/mingw64/bin/git-askpass.exe
 # environment
@@ -117,7 +113,7 @@ MAKEFILE_LIST := makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 16212
+VSCODE_PID = 9920
 # automatic
 ?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
 # environment
@@ -140,7 +136,8 @@ INFOPATH = C:\Program Files\Git\usr\local\info;C:\Program Files\Git\usr\share\in
 SHELL = C:/Program Files/Git/usr/bin/sh.exe
 # environment
 ORIGINAL_PATH = C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\espin\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files\Git\cmd;C:\Program Files\Go\bin;C:\Program Files\nodejs;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\ProgramData\chocolatey\bin;C:\MinGW\bin;C:\Users\espin\.local\share\solana\install\active_release\bin;C:\Users\espin\AppData\Local\Programs\Python\Python310\Scripts;C:\Users\espin\AppData\Local\Programs\Python\Python310;C:\Users\espin\AppData\Local\Microsoft\WindowsApps;C:\Users\espin\go\bin;C:\Users\espin\AppData\Roaming\npm;C:\Users\espin\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files (x86)\heroku\bin
-# environment
+# envir 
+onment
 HOMEPATH = \Users\espin
 # default
 MAKECMDGOALS := all
@@ -209,8 +206,7 @@ DISPLAY = needs-to-be-defined
 # default
 MAKE_VERSION := 4.3
 # environment
-PROGRAMFILES(X86) = C:\Program File 
-s (x86)
+PROGRAMFILES(X86) = C:\Program Files (x86)
 # environment
 USERDOMAIN_ROAMINGPROFILE = LAPTOP-6VSS0VBA
 # environment
@@ -244,7 +240,7 @@ TEMP = C:\Users\espin\AppData\Local\Temp
 # environment
 TERM = xterm
 # environment
-VSCODE_IPC_HOOK = \\.\pipe\9ccbd71fb2a7017c10b2dc64aafeb067-1.67.1-main-sock
+VSCODE_IPC_HOOK = \\.\pipe\9ccbd71fb2a7017c10b2dc64aafeb067-1.67.2-main-sock
 # default
 .RECIPEPREFIX := 
 # environment
@@ -272,7 +268,7 @@ TERM_PROGRAM_VERSION = 3.5.2
 # environment
 PROCESSOR_IDENTIFIER = AMD64 Family 23 Model 96 Stepping 1, AuthenticAMD
 # variable set hash-table stats:
-# Load=129/1024=13%, Rehash=0, Collisions=13/156=8%
+# Load=127/1024=12%, Rehash=0, Collisions=12/154=8%
 
 # Pattern-specific Variable Values
 
@@ -280,9 +276,9 @@ PROCESSOR_IDENTIFIER = AMD64 Family 23 Model 96 Stepping 1, AuthenticAMD
 
 # Directories
 
-# . (key c:/Users/espin/Desktop/Computer Science/DataStructureTA, mtime 1651943496): 19 files, no impossibilities.
+# . (key c:/Users/espin/Desktop/Computer Science/DataStructureTA, mtime 1652951991): 21 files, no impossibilities.
 
-# 19 files, no impossibilities in 1 directories.
+# 21 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -339,12 +335,12 @@ add:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 25 / storage = 175 B / avg = 7 B
-# current buf: size = 8174 B / used = 175 B / count = 25 / avg = 7 B
+# strcache buffers: 1 (0) / strings = 27 / storage = 193 B / avg = 7 B
+# current buf: size = 8174 B / used = 193 B / count = 27 / avg = 7 B
 
-# strcache performance: lookups = 34 / hit rate = 26%
+# strcache performance: lookups = 36 / hit rate = 25%
 # hash-table stats:
-# Load=25/8192=0%, Rehash=0, Collisions=0/34=0%
-# Finished Make data base on Tue May 17 05:33:39 2022
+# Load=27/8192=0%, Rehash=0, Collisions=0/36=0%
+# Finished Make data base on Thu May 19 05:26:28 2022
 
  
