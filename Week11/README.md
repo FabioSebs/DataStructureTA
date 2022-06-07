@@ -14,6 +14,10 @@ Cycle : Where the path leads back to the first vertex traveled
 
 Weighted Graph : A positive value assigned to each edge 
 
+Undirected Graph : Bidirectional - you can go both ways
+
+Directed Graph : Unidirectional - you can go one way
+
 ##  How to Represent a Graph
 
 ### Adjacency List
@@ -28,4 +32,26 @@ Weighted Graph : A positive value assigned to each edge
 
 - Pros: If the graph is dense and the number of edges is large, an adjacency matrix should be the first choice
 
-- Cons: The VxV space requirement of the adjacency matrix makes it a memory hog. Graphs out in the wild usually don't have too many connections and this is the major reason why adjacency lists are the better choice for most tasks.
+- Cons: The NxN space requirement of the adjacency matrix makes it a memory hog. Graphs out in the wild usually don't have too many connections and this is the major reason why adjacency lists are the better choice for most tasks.
+
+## Study Guide
+
+### Questions
+> What is better for representing a graph when it is very dense and why?
+
+Adj. Matrix because the operations for retrieval and checking if there are edges in a graph is constant time. 
+
+> What do you call a Graph that has costs associated with Edges?
+
+Weighted Graphs
+
+> What is the difference between Directed Graph and Undirected Graph?
+
+### Plans for Next Week
+
+- Were gonna perfect this Graph
+
+- You guys are gonna do an in class assignment (making a Study Guide)
+
+- Binary Trees + (Divide and Conquer/Recursive) Sorts
+

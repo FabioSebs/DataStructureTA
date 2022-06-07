@@ -23,3 +23,10 @@ O(1) - Constant
 O(n) - Linear - For Loop
 O(n^2) - Quadratic - Two Nested For Loops
 O(log(n)) - Logarithmic - Recursion + Splitting the Search Space
+
+
+### Graphs 
+
+Undirected -
+
+Directed - 

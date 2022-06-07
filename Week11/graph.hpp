@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
-// Declarations
 
+// DECLARATIONS
 namespace dsa
 {
     template <typename T>
@@ -10,12 +10,14 @@ namespace dsa
     public:
         // Properties
         T value;
-        int weight;
+        int weights;
         std::vector<Vertex> edges;
-        int links;
+        int degree;
 
         // Constructor
-        Vertex(T v, int w) : value(v), weight(w), links(0) {};
+        Vertex(T v, int w) : value(v), weights(w), degree(0){};
+
+        // GETTERS/SETTERS only for private properties
     };
 
     template <typename T>
@@ -25,84 +27,87 @@ namespace dsa
         // Properties
         std::vector<dsa::Vertex<T>> graph;
         int size;
-
         // Constructor
         Graph() : size(0){};
-
         // Functions
         void Add(dsa::Vertex<T> vertex);
-        int Find(T val);
-        void AddLink(T val, dsa::Vertex<T> edge);
+        int Find(T value);
+        void Remove(T value);
+        void AddEdge(T value, dsa::Vertex<T> edge);
         void Display();
-        void Remove(T val);
     };
+};
 
-}
-
+// IMPLEMENTATIONS
 template <typename T>
-void dsa::Graph<T>::Add(dsa::Vertex<T> vertex)
+void dsa::Graph<T>::Add(dsa::Vertex<T> v)
 {
-    this->graph.emplace_back(vertex);
+    this->graph.emplace_back(v);
     this->size++;
 }
 
 template <typename T>
-int dsa::Graph<T>::Find(T val)
+int dsa::Graph<T>::Find(T value)
 {
+    // Going through graph and finding the value's respective index
     for (int i = 0; i < this->size; i++)
     {
         dsa::Vertex<T> vertex = this->graph[i];
-        if (vertex.value == val) {
+        if (vertex.value == value)
+        {
             return i;
-        } 
-    }
-    return 999;
-}
-
-template <typename T>
-void dsa::Graph<T>::AddLink(T val, dsa::Vertex<T> edge) {
-    int idx = this->Find(val);
-    dsa::Vertex<T> &myVertex = this->graph[idx];
-    myVertex.edges.emplace_back(edge);
-    myVertex.links++;
-    // std::cout << myVertex.links << std::endl;
-}
-
-template <typename T>
-void dsa::Graph<T>::Display(){
-    for (int i = 0 ; i < this->size; i++) {
-        dsa::Vertex<T> myVertex = this->graph[i];
-        std::cout << myVertex.value << " ---->\t";
-        for (int j = 0; j < myVertex.links; j++) {
-            dsa::Vertex<T> myEdge = myVertex.edges[j];
-            std::cout << myEdge.value << "\t";
         }
-        std::cout << std::endl;
     }
+    return 1000;
 }
+
 template <typename T>
-void dsa::Graph<T>::Remove(T val) {
+void dsa::Graph<T>::Remove(T val)
+{
+    //Removing from the Graph
     int idx = this->Find(val);
-    if (idx == 999){
+    if (idx == 1000){
         std::cout << "Not Found!" << std::endl;
         return;
     }
-    this->graph.erase(this->graph.begin()+idx);
+
+    this->graph.erase(this->graph.begin() + idx); 
     this->size--;
 
-    for (int i = 0 ; i < this->size; i++) {
+    //Removing/Updating Edges
+    for (int i = 0; i < this->size; i++){
         dsa::Vertex<T> &myVertex = this->graph[i];
-        std::cout << myVertex.edges.size() << std::endl;
-        for(int j = 0; j < myVertex.edges.size(); j++){
+        for (int j = 0; j < myVertex.edges.size(); j++) {
             dsa::Vertex<T> &myEdge = myVertex.edges[j];
-            if (myEdge.value == val) {
-                // std::cout << myEdge.edges.size() << std::endl;
+            if (val == myEdge.value) {
                 myVertex.edges.erase(myVertex.edges.begin()+j);
-                myVertex.links--;
-                std::cout << myEdge.links << std::endl;
-                return;
+                myVertex.degree--;
             }
         }
     }
-   
+};
+
+template <typename T>
+void dsa::Graph<T>::AddEdge(T val, dsa::Vertex<T> edge)
+{
+    int idx = this->Find(val);
+    dsa::Vertex<T> &vertex = this->graph[idx];
+    vertex.edges.emplace_back(edge);
+    vertex.degree++;
+}
+
+// ADJACENCY LIST
+template <typename T>
+void dsa::Graph<T>::Display()
+{
+    for (int i = 0; i < this->size; i++)
+    {
+        dsa::Vertex<T> myVertex = this->graph[i];
+        std::cout << myVertex.value << " ----->\t";
+        for (int j = 0; j < myVertex.degree; j++) {
+            dsa::Vertex<T> edge = myVertex.edges[j];
+            std::cout << edge.value << "\t";
+        }
+        std::cout << std::endl;
+    }
 }
